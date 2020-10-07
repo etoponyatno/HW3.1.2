@@ -8,7 +8,7 @@ public class RadioTest {
     Radio station = new Radio();
 
     @Test
-    public void InitRadio(){
+    public void InitRadio() {
         station.setMinRadioStation(0);
         assertEquals(0, station.getMinRadioStation());
         station.setMaxRadioStation(10);
@@ -21,60 +21,60 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetRadioStation(){
+    public void shouldSetRadioStation() {
         station.setCurrentRadioStation(6);
         assertEquals(6, station.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldSetRadioStationOverMaxLimit(){
+    public void shouldSetRadioStationOverMaxLimit() {
         station.setCurrentRadioStation(11);
         assertEquals(0, station.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldSetRadioStationOverMinLimit(){
+    public void shouldSetRadioStationOverMinLimit() {
         station.setCurrentRadioStation(-1);
         assertEquals(0, station.getCurrentRadioStation());
     }
 
 
     @Test
-    public void shouldSetNextRadioStation(){
-    station.setCurrentRadioStation(6);
-    station.nextCurrentRadioStation();
-    assertEquals(7, station.getCurrentRadioStation());
+    public void shouldSetNextRadioStation() {
+        station.setCurrentRadioStation(6);
+        station.nextCurrentRadioStation();
+        assertEquals(7, station.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldSetPrevRadioStation(){
+    public void shouldSetPrevRadioStation() {
         station.setCurrentRadioStation(6);
         station.prevCurrentRadioStation();
         assertEquals(5, station.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldSetNextRadioStationOverLimit(){
+    public void shouldSetNextRadioStationOverLimit() {
         station.setCurrentRadioStation(9);
         station.nextCurrentRadioStation();
         assertEquals(0, station.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldSetPrevRadioStationOverLimit(){
+    public void shouldSetPrevRadioStationOverLimit() {
         station.setCurrentRadioStation(0);
         station.prevCurrentRadioStation();
         assertEquals(9, station.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldSetVolume(){
+    public void shouldSetVolume() {
         station.setCurrentVolume(9);
         assertEquals(9, station.getCurrentVolume());
     }
 
     @Test
-    public  void  shouldSetVolumeOverMaxLimit(){
+    public void shouldSetVolumeOverMaxLimit() {
         station.setCurrentVolume(11);
         assertEquals(0, station.getCurrentVolume());
     }
@@ -86,28 +86,28 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetNextVolume(){
+    public void shouldSetNextVolume() {
         station.setCurrentVolume(6);
         station.nextCurrentVolume();
         assertEquals(7, station.getCurrentVolume());
     }
 
     @Test
-    public void shouldSetPrevVolume(){
+    public void shouldSetPrevVolume() {
         station.setCurrentVolume(6);
         station.prevCurrentVolume();
         assertEquals(5, station.getCurrentVolume());
     }
 
     @Test
-    public void shouldSetNextVolumeOverLimit(){
+    public void shouldSetNextVolumeOverLimit() {
         station.setCurrentVolume(10);
         station.nextCurrentVolume();
         assertEquals(10, station.getCurrentVolume());
     }
 
     @Test
-    public void shouldSetPrevVolumeOverLimit(){
+    public void shouldSetPrevVolumeOverLimit() {
         station.setCurrentVolume(-1);
         station.prevCurrentVolume();
         assertEquals(0, station.getCurrentVolume());
