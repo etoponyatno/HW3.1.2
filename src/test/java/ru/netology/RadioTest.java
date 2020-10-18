@@ -11,12 +11,12 @@ public class RadioTest {
     public void InitRadio() {
         station.setMinRadioStation(0);
         assertEquals(0, station.getMinRadioStation());
-        station.setMaxRadioStation(10);
-        assertEquals(10, station.getMaxRadioStation());
+        station.setMaxRadioStation(station.getMaxRadioStation());
+        assertEquals(1000, station.getMaxRadioStation());
         station.setMinVolume(0);
         assertEquals(0, station.getMinVolume());
-        station.setMaxVolume(10);
-        assertEquals(10, station.getMaxVolume());
+        station.setMaxVolume(station.getMaxVolume());
+        assertEquals(100, station.getMaxVolume());
 
     }
 
@@ -75,8 +75,8 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeOverMaxLimit() {
-        station.setCurrentVolume(station.getMaxVolume());
-        assertEquals(station.getMaxVolume(), station.getCurrentVolume());
+        station.setCurrentVolume(station.getMaxVolume()+1);
+        assertEquals(0, station.getCurrentVolume());
     }
 
     @Test
