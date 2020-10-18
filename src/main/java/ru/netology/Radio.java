@@ -91,6 +91,9 @@ public class Radio {
     }
 
     public void nextCurrentVolume() {
+        if (currentVolume == maxVolume) {
+            return;
+        }
         this.currentVolume++;
     }
 

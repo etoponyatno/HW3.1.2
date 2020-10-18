@@ -102,6 +102,7 @@ public class RadioTest {
     @Test
     public void shouldSetNextVolumeOverLimit() {
         station.setCurrentVolume(station.getMaxVolume());
+        station.nextCurrentVolume();
         assertEquals(station.getMaxVolume(), station.getCurrentVolume());
     }
 
