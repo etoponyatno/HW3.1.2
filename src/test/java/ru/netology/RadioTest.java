@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RadioTest {
-    Radio station = new Radio();
+    Radio station = new Radio(1000, 100);
 
     @Test
     public void InitRadio() {
@@ -28,7 +28,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetRadioStationOverMaxLimit() {
-        station.setCurrentRadioStation(11);
+        station.setCurrentRadioStation(station.getMaxRadioStation()+1);
         assertEquals(0, station.getCurrentRadioStation());
     }
 
@@ -55,7 +55,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetNextRadioStationOverLimit() {
-        station.setCurrentRadioStation(9);
+        station.setCurrentRadioStation(station.getMaxRadioStation());
         station.nextCurrentRadioStation();
         assertEquals(0, station.getCurrentRadioStation());
     }
@@ -64,7 +64,7 @@ public class RadioTest {
     public void shouldSetPrevRadioStationOverLimit() {
         station.setCurrentRadioStation(0);
         station.prevCurrentRadioStation();
-        assertEquals(9, station.getCurrentRadioStation());
+        assertEquals(station.getMaxRadioStation(), station.getCurrentRadioStation());
     }
 
     @Test
@@ -75,8 +75,8 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeOverMaxLimit() {
-        station.setCurrentVolume(11);
-        assertEquals(0, station.getCurrentVolume());
+        station.setCurrentVolume(station.getMaxVolume());
+        assertEquals(station.getMaxVolume(), station.getCurrentVolume());
     }
 
     @Test
@@ -101,9 +101,8 @@ public class RadioTest {
 
     @Test
     public void shouldSetNextVolumeOverLimit() {
-        station.setCurrentVolume(10);
-        station.nextCurrentVolume();
-        assertEquals(10, station.getCurrentVolume());
+        station.setCurrentVolume(station.getMaxVolume());
+        assertEquals(station.getMaxVolume(), station.getCurrentVolume());
     }
 
     @Test
